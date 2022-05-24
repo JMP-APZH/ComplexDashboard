@@ -51,7 +51,8 @@ const Ecommerce = () => {
                   { item.amount }
 
                 </span>
-                <span className={`text-sm text-${ item.pcColor } ml-2`}>
+                {/* <span className={`text-sm text-${item.pcColor} ml-2`}> */}
+                <span className={`text-sm text-${item.pcColor} ml-2`}>
                   { item.percentage }
                 </span>
 
