@@ -127,6 +127,23 @@ const Ecommerce = () => {
 
               </div>
 
+              <div className='mt-10'>
+                <Button
+                  color='white'
+                  bgColor='blue'
+                  text='Download Report'
+                  borderRadius='10px'
+                />
+
+              </div>
+
+            </div>
+
+            <div>
+              <Stacked 
+                width='320px'
+                height='360px'
+              />
             </div>
 
           </div>
