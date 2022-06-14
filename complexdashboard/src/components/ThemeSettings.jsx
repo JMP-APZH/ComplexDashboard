@@ -7,7 +7,7 @@ import { themeColors } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const ThemeSettings = () => {
-  const { setColor, setMode, CurrentMode, currentColor, setThemeSetings } = useStateContext();
+  const { setColor, setMode, CurrentMode, currentColor, setThemeSettings } = useStateContext();
 
   return (
     <div className='bg-half-transparent w-screen fixed nav-item top-0 right-0'>
@@ -18,7 +18,7 @@ const ThemeSettings = () => {
           </p>
           <button
             type='button'
-            onclick= {() => {}}
+            onclick= {() => setThemeSettings(false)}
             style={{ color: 'rgb(153, 171, 180)', borderRadius: '50% '}}
             className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
           >
