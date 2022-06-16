@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
@@ -9,21 +9,32 @@ import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Ka
 import { useStateContext } from './contexts/ContextProvider';
 
 import './App.css'
+import NavEx from './components/NavEx';
 
 const App = () => {
+  const [showNav, setShowNav] = useState(true)
   const { activeMenu, themeSettings, setThemeSettings } = useStateContext();
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
   
   return (
     <div>
+
+      <NavEx />
+
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
-          <div className='fixed right-4 bottom-4' style={{ zIndex:'1000' }}>
+          <div 
+            // isOpen={showNav}
+            className='fixed right-4 bottom-4' style={{ zIndex:'1000' }}>
             <TooltipComponent content='Settings' position='Top'>
               <button 
                 type='button' 
                 className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white'
                 style={{ background: 'blue', borderRadius: '50%' }}
-                onClick={() => setThemeSettings(true)}
+                // onClick={() => setThemeSettings(true)}
+                // onClick={() => setShowNav(true)}
+                onClick={toggle}
               >
                 <FiSettings />
               </button>
