@@ -10,7 +10,7 @@ function NavEx() {
             isOpen={showNav} 
             className="bg-gray-200 py-10">
             <button 
-                className="bg-primary rounded-lg text-white" 
+                className="bg-primary rounded-lg text-red-500" 
                 onClick={() => setShowNav(false)}
             >
                 Close Navbar
@@ -23,7 +23,7 @@ function NavEx() {
 
         <div>
         <button 
-            className="bg-primary rounded-lg text-black" 
+            className="bg-primary rounded-lg text-blue-500" 
             onClick={() => setShowNav(true)}
         >
             Open Navbar

@@ -12,10 +12,9 @@ import './App.css'
 import NavEx from './components/NavEx';
 
 const App = () => {
-  const [showNav, setShowNav] = useState(true)
+  // const [themeSettings, setThemeSettings] = useState(false);
+  // const { activeMenu } = useStateContext();
   const { activeMenu, themeSettings, setThemeSettings } = useStateContext();
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
   
   return (
     <div>
@@ -25,16 +24,14 @@ const App = () => {
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div 
-            // isOpen={showNav}
+            onAfterClose={themeSettings}
             className='fixed right-4 bottom-4' style={{ zIndex:'1000' }}>
             <TooltipComponent content='Settings' position='Top'>
               <button 
                 type='button' 
                 className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white'
                 style={{ background: 'blue', borderRadius: '50%' }}
-                // onClick={() => setThemeSettings(true)}
-                // onClick={() => setShowNav(true)}
-                onClick={toggle}
+                onClick={() => setThemeSettings(true)}
               >
                 <FiSettings />
               </button>

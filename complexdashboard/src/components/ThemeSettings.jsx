@@ -7,117 +7,116 @@ import { themeColors } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const ThemeSettings = () => {
-  // const [showNav, setShowNav] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-  const { setColor, setMode, CurrentMode, currentColor } = useStateContext();
+  // const [themeSettings, setThemeSettings] = useState(true);
+  const { setColor, setMode, CurrentMode, currentColor, themeSettings, setThemeSettings } = useStateContext();
 
   return (
-    <div 
-    // isOpen={showNav}
-      className='bg-half-transparent w-screen fixed nav-item top-0 right-0'>
-      <div 
-        // isOpen={showNav}
-        className='float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400'>
+    <>
+        {themeSettings && <div 
+        isOpen={themeSettings}
+        className='bg-half-transparent w-screen fixed nav-item top-0 right-0'>
         <div 
-          className='flex justify-between items-center p-4 ml-4'
-          // isOpen={showNav}
-        >
-          <p className='font-semibold text-xl'>
-            Settings
-          </p>
-          <button
-            type='button'
-            // onclick= {() => setShowNav(false)}
-            onClick={toggle}
-            style={{ color: 'rgb(153, 171, 180)', borderRadius: '50% '}}
-            className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
+          className='float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400'>
+          
+          <div 
+            className='flex justify-between items-center p-4 ml-4'
+            
           >
-            <MdOutlineCancel />
-          </button>
-        </div>
-
-        <div className='flex-col border-t-1 border-color p-4 ml-4'>
-          <p className='font-semibold text-lg'>
-            Theme Options
-          </p>
-
-          <div className='mt-4'>
-            <input 
-              type='radio'
-              id='light'
-              name='theme'
-              value='Light'
-              className='cursor-pointer'
-              onChange={() => {}}
-              checked={true}
-            />
-            <label 
-              htmlFor='light'
-              className='ml-2 text-md cursor-pointer'
+            <p className='font-semibold text-xl'>
+              Settings
+            </p>
+            <button
+              type='button'
+              onClick= {() => setThemeSettings(false)}
+              // onClick={toggle}
+              style={{ color: 'rgb(153, 171, 180)', borderRadius: '50% '}}
+              className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'
             >
-              Light
-            </label>
+              <MdOutlineCancel />
+            </button>
           </div>
 
-          <div className='mt-4'>
-            <input 
-              type='radio'
-              id='dark'
-              name='theme'
-              value='Dark'
-              className='cursor-pointer'
-              onChange={() => {}}
-              checked={true}
-            />
-            <label 
-              htmlFor='dark'
-              className='ml-2 text-md cursor-pointer'
-            >
-              Dark
-            </label>
+          <div className='flex-col border-t-1 border-color p-4 ml-4'>
+            <p className='font-semibold text-lg'>
+              Theme Options
+            </p>
 
-          </div>
-
-        </div>
-
-        <div className='flex-col border-t-1 border-color p-4 ml-4'>
-          <p className='font-semibold text-lg'>
-            Theme Colors
-          </p>
-
-          <div className='flex gap-3'>
-            { themeColors.map((item, index) => (
-              <TooltipComponent
-                key={index}
-                content={item.name}
-                position='TopCenter'
+            <div className='mt-4'>
+              <input 
+                type='radio'
+                id='light'
+                name='theme'
+                value='Light'
+                className='cursor-pointer'
+                onChange={() => {}}
+                checked={true}
+              />
+              <label 
+                htmlFor='light'
+                className='ml-2 text-md cursor-pointer'
               >
-                <div className='relative mt-2 cursor-pointer flex gap-5 items-center'>
-                  <button
-                    type='button'
-                    className='h-10 w-10 rounded-full cursor-pointer'
-                    style={{ backgroundColor: item.color }}
-                    onclick={() => {}}
-                  >
-                    <BsCheck 
-                      // className={`ml-2 text-2xl text-white 
-                      //             ${item.color === currentColor ? 'block' : 'hidden'}`}
-                      className={`ml-2 text-2xl text-white 
-                      ${false ? 'block' : 'hidden'}`}
-                    />
-                  </button>
+                Light
+              </label>
+            </div>
 
-                </div>
-              </TooltipComponent>
-            )) }
+            <div className='mt-4'>
+              <input 
+                type='radio'
+                id='dark'
+                name='theme'
+                value='Dark'
+                className='cursor-pointer'
+                onChange={() => {}}
+                checked={true}
+              />
+              <label 
+                htmlFor='dark'
+                className='ml-2 text-md cursor-pointer'
+              >
+                Dark
+              </label>
+
+            </div>
+
           </div>
-        </div>
 
-      </div>
-      
-    </div>
-  )
+          <div className='flex-col border-t-1 border-color p-4 ml-4'>
+            <p className='font-semibold text-lg'>
+              Theme Colors
+            </p>
+
+            <div className='flex gap-3'>
+              { themeColors.map((item, index) => (
+                <TooltipComponent
+                  key={index}
+                  content={item.name}
+                  position='TopCenter'
+                >
+                  <div className='relative mt-2 cursor-pointer flex gap-5 items-center'>
+                    <button
+                      type='button'
+                      className='h-10 w-10 rounded-full cursor-pointer'
+                      style={{ backgroundColor: item.color }}
+                      onclick={() => {}}
+                    >
+                      <BsCheck 
+                        // className={`ml-2 text-2xl text-white 
+                        //             ${item.color === currentColor ? 'block' : 'hidden'}`}
+                        className={`ml-2 text-2xl text-white 
+                        ${false ? 'block' : 'hidden'}`}
+                      />
+                    </button>
+
+                  </div>
+                </TooltipComponent>
+              )) }
+            </div>
+          </div>
+
+        </div>
+        
+      </div>}
+      </>)
 }
 
 export default ThemeSettings
