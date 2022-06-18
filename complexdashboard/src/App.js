@@ -24,7 +24,7 @@ const App = () => {
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div 
-            onAfterClose={themeSettings}
+            // onAfterClose={themeSettings}
             className='fixed right-4 bottom-4' style={{ zIndex:'1000' }}>
             <TooltipComponent content='Settings' position='Top'>
               <button 
