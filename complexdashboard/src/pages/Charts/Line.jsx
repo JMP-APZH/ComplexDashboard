@@ -9,9 +9,9 @@ const Line = () => {
         category='Chart' 
         title='Inflation Rate'
       />
-        <LineChart />
+        
       <div className='w-full'>
-
+        <LineChart />
       </div>
 
     </div>
